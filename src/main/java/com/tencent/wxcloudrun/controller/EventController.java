@@ -61,9 +61,9 @@ public class EventController {
     long createTime = Instant.now().getEpochSecond(); // 当前时间戳
 
     String sb = "<xml>" +
-            "<ToUserName><![CDATA[" + toUser + "]]></ToUserName>" +
-            "<FromUserName><![CDATA[" + fromUser + "]]></FromUserName>" +
-            "<CreateTime>" + createTime + "</CreateTime>" +
+            "<ToUserName><![CDATA[oGC33v2LpGB76C5NB1_nFbmzeGdA]]></ToUserName>" +
+            "<FromUserName><![CDATA[gh_9795aa8b1af6]]></FromUserName>" +
+            "<CreateTime>1732693930</CreateTime>" +
             "<MsgType><![CDATA[text]]></MsgType>" +
             "<Content><![CDATA[你好]]></Content>" +
             "</xml>";
