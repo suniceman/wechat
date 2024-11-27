@@ -67,7 +67,7 @@ public class EventController {
             .append("<MsgType><![CDATA[text]]></MsgType>")
             .append("<Content><![CDATA[你好 111]]></Content>")
             .append("</xml>");
-
+    System.out.println("xml " + sb.toString());
     return sb.toString();
   }
 
