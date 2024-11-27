@@ -64,16 +64,8 @@ public class EventController {
             .append("<ToUserName><![CDATA[").append(toUser).append("]]></ToUserName>")
             .append("<FromUserName><![CDATA[").append(fromUser).append("]]></FromUserName>")
             .append("<CreateTime>").append(createTime).append("</CreateTime>")
-            .append("<MsgType><![CDATA[news]]></MsgType>")
-            .append("<ArticleCount>1</ArticleCount>")
-            .append("<Articles>")
-            .append("<item>")
-            .append("<Title><![CDATA[").append(title).append("]]></Title>")
-            .append("<Description><![CDATA[").append(description).append("]]></Description>")
-            .append("<PicUrl><![CDATA[").append(picUrl).append("]]></PicUrl>")
-            .append("<Url><![CDATA[").append(url).append("]]></Url>")
-            .append("</item>")
-            .append("</Articles>")
+            .append("<MsgType><![CDATA[text]]></MsgType>")
+            .append("<Content><![CDATA[你好 111]]></Content>")
             .append("</xml>");
 
     return sb.toString();
