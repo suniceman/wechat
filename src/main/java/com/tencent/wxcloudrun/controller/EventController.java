@@ -45,7 +45,8 @@ public class EventController {
     } else if ("event".equals(msgType) && "unsubscribe".equals(event)) {
       System.out.println("User unsubscribed.");
     }
-    return "";
+    return buildNewsMessage(fromUserName, toUserName);
+//    return "";
   }
 
   /**
@@ -64,7 +65,7 @@ public class EventController {
             "<FromUserName><![CDATA[" + fromUser + "]]></FromUserName>" +
             "<CreateTime>" + createTime + "</CreateTime>" +
             "<MsgType><![CDATA[text]]></MsgType>" +
-            "<Content><![CDATA[你好 111]]></Content>" +
+            "<Content><![CDATA[你好]]></Content>" +
             "</xml>";
     System.out.println("xml " + sb);
     return sb;
