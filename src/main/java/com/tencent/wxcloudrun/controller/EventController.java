@@ -59,16 +59,15 @@ public class EventController {
 
     long createTime = Instant.now().getEpochSecond(); // 当前时间戳
 
-    StringBuilder sb = new StringBuilder();
-    sb.append("<xml>")
-            .append("<ToUserName><![CDATA[").append(toUser).append("]]></ToUserName>")
-            .append("<FromUserName><![CDATA[").append(fromUser).append("]]></FromUserName>")
-            .append("<CreateTime>").append(createTime).append("</CreateTime>")
-            .append("<MsgType><![CDATA[text]]></MsgType>")
-            .append("<Content><![CDATA[你好 111]]></Content>")
-            .append("</xml>");
-    System.out.println("xml " + sb.toString());
-    return sb.toString();
+    String sb = "<xml>" +
+            "<ToUserName><![CDATA[" + toUser + "]]></ToUserName>" +
+            "<FromUserName><![CDATA[" + fromUser + "]]></FromUserName>" +
+            "<CreateTime>" + createTime + "</CreateTime>" +
+            "<MsgType><![CDATA[text]]></MsgType>" +
+            "<Content><![CDATA[你好 111]]></Content>" +
+            "</xml>";
+    System.out.println("xml " + sb);
+    return sb;
   }
 
   /**
