@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Instant;
 import java.util.Map;
 
 /**
@@ -39,10 +40,43 @@ public class EventController {
     // 根据需要处理事件逻辑
     if ("event".equals(msgType) && "subscribe".equals(event)) {
       System.out.println("New user subscribed!");
+      // 返回图文消息
+      return buildNewsMessage(fromUserName, toUserName);
     } else if ("event".equals(msgType) && "unsubscribe".equals(event)) {
       System.out.println("User unsubscribed.");
     }
     return "";
+  }
+
+  /**
+   * 构造图文消息的 XML (适配 Java 8 的字符串拼接)
+   */
+  private String buildNewsMessage(String toUser, String fromUser) {
+    String title = "欢迎关注我们的公众号！";
+    String description = "点击查看更多精彩内容！";
+    String picUrl = "https://mmbiz.qpic.cn/mmbiz_jpg/c2eibicr1zrFJ47AxEzic6LuRlKGDYXIOymMRicmVqKT8Nk2YBtcTMzsmDE0icLYo8kfpnjPag0BMmXhz91Xm8RGQXg/640"; // 替换为实际图片地址
+    String url = "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzIyMDY0NzE5Mg==#wechat_redirect"; // 替换为实际跳转链接
+
+    long createTime = Instant.now().getEpochSecond(); // 当前时间戳
+
+    StringBuilder sb = new StringBuilder();
+    sb.append("<xml>")
+            .append("<ToUserName><![CDATA[").append(toUser).append("]]></ToUserName>")
+            .append("<FromUserName><![CDATA[").append(fromUser).append("]]></FromUserName>")
+            .append("<CreateTime>").append(createTime).append("</CreateTime>")
+            .append("<MsgType><![CDATA[news]]></MsgType>")
+            .append("<ArticleCount>1</ArticleCount>")
+            .append("<Articles>")
+            .append("<item>")
+            .append("<Title><![CDATA[").append(title).append("]]></Title>")
+            .append("<Description><![CDATA[").append(description).append("]]></Description>")
+            .append("<PicUrl><![CDATA[").append(picUrl).append("]]></PicUrl>")
+            .append("<Url><![CDATA[").append(url).append("]]></Url>")
+            .append("</item>")
+            .append("</Articles>")
+            .append("</xml>");
+
+    return sb.toString();
   }
 
   /**
