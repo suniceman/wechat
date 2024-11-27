@@ -55,7 +55,7 @@ public class EventController {
     String title = "欢迎关注我们的公众号！";
     String description = "点击查看更多精彩内容！";
     String picUrl = "https://mmbiz.qpic.cn/mmbiz_jpg/c2eibicr1zrFJ47AxEzic6LuRlKGDYXIOymMRicmVqKT8Nk2YBtcTMzsmDE0icLYo8kfpnjPag0BMmXhz91Xm8RGQXg/640"; // 替换为实际图片地址
-    String url = "https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzIyMDY0NzE5Mg==#wechat_redirect"; // 替换为实际跳转链接
+    String url = "https://mp.weixin.qq.com/s/27TmZ2gN_tT50BjcKNhxhg"; // 替换为实际跳转链接
 
     long createTime = Instant.now().getEpochSecond(); // 当前时间戳
 
